@@ -1,0 +1,7 @@
+WARN[0000] /mnt/d/Dev/Dicoding/DevOps/3. Microservices/4. submission 1/a433-microservices/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+[+] Running 1/1
+ ✔ item-app Pulled                                                                                                                                      2.5s
+[+] Running 3/3
+ ✔ Volume "a433-microservices_app-db"       Created                                                                                                     0.0s
+ ✔ Container a433-microservices-item-db-1   Started                                                                                                     1.1s
+ ✔ Container a433-microservices-item-app-1  Started                                                                                                     1.4s

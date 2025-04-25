@@ -1,0 +1,35 @@
+# Set the docker compose version to 3.7
+version: "3.7"
+
+# Define all services
+services:
+  # First service => item-app
+  item-app:
+    # This service utilising image faruqabdulhakim/item-app:v1 (hosted docker hub)
+    image: faruqabdulhakim/item-app:v1
+    # Apply restart policy to always. So the service will automatically try to restart when the service stopped
+    restart: always
+    # Map this service port 80(host):8080(container)
+    ports:
+      - 80:8080
+    # Define service dependencies
+    depends_on:
+      # This service have dependencies on item-db service
+      item-db:
+        # Ensure this service only run when the item-db service has been started
+        condition: service_started
+
+  # Second service => item-db
+  item-db:
+    # This service utilising image mongo:3
+    image: mongo:3
+    # Apply restart policy to always. So the service will automatically try to restart when the service stopped
+    restart: always
+    # This service utilising volume app-db and the destination is /data/db
+    volumes:
+      - app-db:/data/db
+
+# Define all volumes
+volumes:
+  # Create volume with name: app-db
+  app-db:
